@@ -1,5 +1,6 @@
 # Polargraph-Machine
 Implementación  de una máquina de dibujo polarográfica en arduino MEGA 2560
+
 Trabajo semestral - Cátedra Proyecto 1
 
 ### Integrantes 
