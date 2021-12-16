@@ -1,16 +1,8 @@
-/**
-*  Polargraph Server for ATMEGA1280+ 
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_polarshield
-
-Specific features for Polarshield / arduino mega.
+/*
+Características específicas para Polarshield / arduino mega.
 Rove.
-
-Commands that will set and modify the rove area, and the features that use
-the rove area heavily.
-
+Los comandos que establecerán y modificarán el área móvil y las funciones que utilizan
+el área de rove pesadamente.
 */
 
 #if MICROCONTROLLER == MC_MEGA
@@ -124,8 +116,8 @@ boolean rove_inRoveArea(float a, float b)
 
 
 /**
-Method that works out where the next line should start, based on pen position, line
-width and rove area
+Método que determina dónde debe comenzar la siguiente línea, según la posición del lápiz, la línea
+ancho y área de rove
 */
 boolean rove_moveToBeginningOfNextTextLine()
 {
@@ -594,4 +586,3 @@ void rove_controlSwirling()
 }
 
 #endif
-

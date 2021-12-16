@@ -1,15 +1,7 @@
-/**
-*  Polargraph Server for ATMEGA1280+ 
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_polarshield
-
-Specific features for Polarshield / arduino mega.
+/*
+Características específicas para Polarshield / arduino mega.
 SD.
-
-For initialising, reading and writing the SD card data store.
-
+Para inicializar, leer y escribir el almacén de datos de la tarjeta SD.
 */
 
 /*  ==============================================================

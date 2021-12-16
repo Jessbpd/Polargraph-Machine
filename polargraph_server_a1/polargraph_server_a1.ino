@@ -1,103 +1,45 @@
 /**
-*  Polargraph Server for Arduino UNO and MEGA compatible boards.
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_a1
-
-
-CONFIGURATION!! Read this! Really.
-==================================
-
-Kung fu is like a game of chess. You must think first! Before you move.
-
-This is a unified codebase for a few different versions of Polargraph Server.
-
-You can control how it is compiled by changing the #define lines below.
-
-There are five config sections:
-1. Specify what kind of controller board you are using
-2. Add some libraries if you have a MEGA
-3. Specify what kind of motor driver you are using:
-  i. Adafruit Motorshield v1
-  ii. Adafruit Motorshield v2
-  iii. Discrete stepper drivers (eg EasyDriver, stepstick, Pololu gear).*
-  iv. Signal amplifier like a UNL2003*
-4.  Turn on some debugging code
-5.  Disable program features if you need to free up space
-
-* For motor drivers iii and iv, you will need to change the values in
-  configuration.ino to set the exact pins the drivers are wired up to.
-  
+Proyecto realizado por
+ - Noguera, Ignacio
+ - Pizarr0, Jessica
+ - Velazquez, Hector
 */
 
 
-// 1. Specify what kind of controller board you are using
-// ======================================================
-// UNO or MEGA. Uncomment the line for the kind of board you have.
+// Controlador utilizado
 #ifndef MICROCONTROLLER
-#define MICROCONTROLLER MC_UNO
-//#define MICROCONTROLLER MC_MEGA
+#define MICROCONTROLLER MC_MEGA
 #endif
 
+// Librerías de Mega
+#include <SPI.h>
+#include <SD.h>
+// Motor driver
+#define ADAFRUIT_MOTORSHIELD_V1
+#include <AFMotor.h>
 
-// 2. Add some libraries if you have a MEGA
-// ========================================
-// Uncomment the SPI and SD lines below if you have a MEGA.  
-// http://forum.arduino.cc/index.php?topic=173584.0
-//#include <SPI.h>
-//#include <SD.h>
-
-
-// 3. Specify what kind of motor driver you are using
-// ==================================================
-// Only ONE set of lines below should be uncommented.
-
-//   i. Adafruit Motorshield v1. The original, and still the best.
-//   -------------------------------------------------------------
-//#define ADAFRUIT_MOTORSHIELD_V1
-//#include <AFMotor.h>
-
-//   ii. Adafruit Motorshield v2. It's all squealy.
-//   ----------------------------------------------
-//#define ADAFRUIT_MOTORSHIELD_V2
-//#include <Wire.h>
-//#include <Adafruit_MotorShield.h>
-//#include "utility/Adafruit_PWMServoDriver.h"
-
-//   iii. Using discrete stepper drivers? (eg EasyDriver, stepstick, Pololu gear)
-//   ----------------------------------------------------------------------------
-//   Don't forget to define your pins in 'configuration.ino'.
 #define SERIAL_STEPPER_DRIVERS 
-
+//      ¿?¿?
 //   iv. Using a signal amplifier like a UNL2003? 
 //   --------------------------------------------
 //   Don't forget to define your pins in 'configuration.ino'.
 //   #define UNL2003_DRIVER
 
 
-// 4.  Turn on some debugging code if you want horror
-// =================================================
+// Encienda algún código de depuración si quiere horror
 //#define DEBUG
 //#define DEBUG_COMMS
 //#define DEBUG_PENLIFT
 //#define DEBUG_PIXEL
 
 
-// 5.  Disable program features if you need to free up space
-// ========================================================
+// Desactive las funciones del programa si necesita 
+// liberar espacio!
 #define PIXEL_DRAWING
 #define PENLIFT
-#define VECTOR_LINES
+#define VECTOR_LINES   
 
-
-
-/*  ===========================================================  
-    These variables are common to all polargraph server builds
-=========================================================== */    
-
-// ==========================================================
-// Some microcontroller's names
+// ¿Innecesario?
 #define MC_UNO 1
 #define MC_MEGA 2
 
@@ -106,7 +48,7 @@ There are five config sections:
 #include <EEPROM.h>
 #include "EEPROMAnything.h"
 
-const String FIRMWARE_VERSION_NO = "1.2.1";
+const String FIRMWARE_VERSION_NO = "0.0.1";
 
 //  EEPROM addresses
 const byte EEPROM_MACHINE_WIDTH = 0;
@@ -142,7 +84,7 @@ const int DEFAULT_MM_PER_REV = 95;
 const int DEFAULT_STEPS_PER_REV = 400;
 const int DEFAULT_STEP_MULTIPLIER = 1;
 
-// working machine specification
+// Especificaciones de la maquina
 static int motorStepsPerRev = DEFAULT_STEPS_PER_REV;
 static float mmPerRev = DEFAULT_MM_PER_REV;
 static byte stepMultiplier = DEFAULT_STEP_MULTIPLIER;
@@ -257,7 +199,7 @@ const static String CMD_SETMACHINESTEPMULTIPLIER = "C37";
 
 void setup() 
 {
-  Serial.begin(57600);           // set up Serial library at 57600 bps
+  Serial.begin(57600);           // Configurar el Serial library en 57600 bps
   Serial.println("POLARGRAPH ON!");
   Serial.print("Hardware: ");
   Serial.println(MICROCONTROLLER);
@@ -292,7 +234,6 @@ void setup()
   delay(500);
 
 }
-
 void loop()
 {
   if (comms_waitForNextCommand(lastCommand)) 
@@ -324,7 +265,7 @@ const static String CMD_DRAW_RANDOM_SPRITE = "C42";
 const static String CMD_DRAW_NORWEGIAN = "C43";
 const static String CMD_DRAW_NORWEGIAN_OUTLINE = "C44";
 
-/*  End stop pin definitions  */
+//  Definiciones de pines EndStop 
 const int ENDSTOP_X_MAX = 17;
 const int ENDSTOP_X_MIN = 16;
 const int ENDSTOP_Y_MAX = 15;
@@ -333,7 +274,7 @@ const int ENDSTOP_Y_MIN = 14;
 long ENDSTOP_X_MIN_POSITION = 130;
 long ENDSTOP_Y_MIN_POSITION = 130;
 
-// size and location of rove area
+// Tamaño y ubicación del área de rove
 long rove1x = 1000;
 long rove1y = 1000;
 long roveWidth = 5000;
@@ -357,16 +298,17 @@ String commandFilename = "";
 const int chipSelect = 53;
 boolean sdCardInit = false;
 
-// set up variables using the SD utility library functions:
+// configurar variables usando las funciones de 
+// la biblioteca de la utilidad SD:
 File root;
 boolean cardPresent = false;
 boolean cardInit = false;
 boolean echoingStoredCommands = false;
 
-// the file itself
+// El archivo en sí
 File pbmFile;
 
-// information we extract about the bitmap file
+// Información que extraemos sobre el archivo de mapa de bits
 long pbmWidth, pbmHeight;
 float pbmScaling = 1.0;
 int pbmDepth, pbmImageoffset;

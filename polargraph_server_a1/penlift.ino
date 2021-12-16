@@ -7,23 +7,22 @@
 
 Penlift.
 
-This is one of the core files for the polargraph server program.  
-This file contains the servo calls that raise or lower the pen from
-the page.
+Este es uno de los archivos principales del programa del servidor polargraph.
+Este archivo contiene las llamadas de servo que suben o bajan el lápiz desde
+la página.
 
-The behaviour of the pen lift is this:
+El comportamiento del elevador de pluma es el siguiente:
 
-If a simple "pen up", or "pen lift" command is received ("C14,END"), then the machine will
-not try to lift the pen if it thinks it is already up.  It checks the value of the 
-global boolean variable "isPenUp" to decide this.
+Si se recibe un simple comando de "levantar el lápiz" o "levantar el lápiz" ("C14, FIN"), la máquina
+No intente levantar el bolígrafo si cree que ya está levantado. Comprueba el valor de la
+variable booleana global "isPenUp" para decidir esto.
 
-If a qualified "pen up" is received, that is one that includes a pen position (eg "C14,150,END"),
-then the global "up" position variable is updated, and the servo is moved to that position,
-even if it already is "up".  Because naturally, if the up position has changed, even if it
-is already up, there's a good chance it won't be up enough.
+Si se recibe un "bolígrafo arriba" calificado, que incluye una posición del bolígrafo (por ejemplo, "C14,150, END"),
+luego se actualiza la variable de posición global "arriba", y el servo se mueve a esa posición,
+incluso si ya está "activo". Porque, naturalmente, si la posición hacia arriba ha cambiado, incluso si
+ya está activo, hay una buena posibilidad de que no sea suficiente.
 
-The same goes for the 
-
+Lo mismo ocurre con el
 */
 #ifdef PENLIFT
 void penlift_movePen(int start, int end, int delay_ms)

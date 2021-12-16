@@ -1,16 +1,8 @@
-/**
-*  Polargraph Server. - CORE
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_a1
-
-Comms.
-
-This is one of the core files for the polargraph server program.  
-Comms can mean "communications" or "commands", either will do, since
-it contains methods for reading commands from the serial port.
-
+/*
+COMMS
+Este es uno de los archivos principales del programa del servidor polargraph.
+Comunicaciones puede significar "communications" o "commands", cualquiera de los dos servirá, ya que
+contiene métodos para leer comandos desde el puerto serie.
 */
 
 boolean comms_waitForNextCommand(char *buf)
@@ -261,5 +253,3 @@ void comms_unrecognisedCommand(String &com)
   Serial.print(com);
   Serial.println(F(" not recognised."));
 }  
-
-

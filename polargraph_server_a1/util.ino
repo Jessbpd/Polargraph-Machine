@@ -1,18 +1,9 @@
-/**
-*  Polargraph Server. - CORE
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_a1
-
+/*
 Util.
-
-This is one of the core files for the polargraph server program.  
-
-This has all the methods that let the rest actually work, including
-the geometry routines that convert from the different coordinates
-systems, and do transformations.
-
+Este es uno de los archivos principales del programa del servidor polargraph.
+Tiene todos los métodos que permiten que el resto funcione, incluidos
+las rutinas de geometría que se convierten a partir de las diferentes coordenadas
+sistemas y hacer transformaciones.
 */
 long multiplier(int in)
 {
@@ -240,4 +231,3 @@ long getCartesianY(long cX, float aPos) {
   long calcY = long(sqrt(pow(aPos,2)-pow(cX,2)));
   return calcY;
 }
-

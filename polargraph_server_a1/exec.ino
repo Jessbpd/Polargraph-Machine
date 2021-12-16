@@ -7,13 +7,13 @@
 
 Exec.
 
-This is one of the core files for the polargraph server program.  
-Purposes are getting a little more blurred here.  This file contains
-the basic decision tree that branches based on command.
+Este es uno de los archivos principales del programa del servidor polargraph.
+Los propósitos se están volviendo un poco más borrosos aquí. Este archivo contiene
+el árbol de decisión básico que se ramifica según el comando.
 
-It has a set of the most general-purpose drawing commands, but only
-methods that are directly called - none of the geometry or conversion
-routines are here.
+Tiene un conjunto de los comandos de dibujo de uso general, pero solo
+métodos que se llaman directamente - ninguno de la geometría o conversión
+las rutinas están aquí.
 
 */
 /**  This method looks only for the basic command set

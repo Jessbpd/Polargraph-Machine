@@ -1,16 +1,9 @@
 /**
-*  Polargraph Server. - CORE
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_a1
-
-Configuration.
-
-This is one of the core files for the polargraph server program.  
-It sets up the motor objects (AccelSteppers), and has default
-values for the motor, sprocket and microstepping combinations used
-by polargraphs so far.
+CONFIGURATION
+Este es uno de los archivos principales del programa del servidor polargraph.
+Configura los objetos del motor (AccelSteppers) y tiene valores predeterminados
+valores para las combinaciones de motor, piñón y micropasos utilizadas
+por polargrafos hasta ahora.
 */
 
 #ifdef ADAFRUIT_MOTORSHIELD_V1
@@ -42,13 +35,13 @@ AccelStepper motorA(forwarda, backwarda);
 AccelStepper motorB(forwardb, backwardb);
 #endif
 
-/* Motor setup if you are using serial stepper drivers 
-(EasyDrivers, stepsticks, Pololu etc).
+/*Configuración del motor si está utilizando controladores paso a paso en serie
+(EasyDrivers, stepsticks, Pololu, etc.).
 
-If you are wiring up yourself, just put the pin numbers in here.
+Si se está conectando usted mismo, introduzca aquí los números de los pines.
 
-Note that the pen lift servo usually lives on pin 9, so avoid 
-that if you can. If you can't, then you know how to change it.
+Tenga en cuenta que el servo de elevación del lápiz suele estar en el pin 9, así que evite
+eso si puedes. Si no puede, entonces sabe cómo cambiarlo.
 */
 #ifdef SERIAL_STEPPER_DRIVERS
 #define MOTOR_A_ENABLE_PIN 8
@@ -64,9 +57,9 @@ AccelStepper motorB(1,MOTOR_B_STEP_PIN, MOTOR_B_DIR_PIN);
 
 #ifdef UNL2003_DRIVER
 // Contributed by @j0nson
-// Initialize ULN2003 stepper driver
-// first number is type of stepper motor, 4 for a normal 4 wire step motor, 8 for a halfstepped normal 4 wire motor
-//Connection Directions
+// Inicializar el controlador paso a paso ULN2003
+// El primer número es el tipo de motor paso a paso, 4 para un motor paso a paso normal de 4 hilos, 8 para un motor normal de 4 hilos a medio paso
+// Direcciones de conexión
 // MotorA
 //ULN2003  Arduino  AcceStepper Init
 //IN1      2        2
@@ -107,7 +100,7 @@ void configuration_motorSetup()
   motorA.setEnablePin(MOTOR_A_ENABLE_PIN);
   motorA.setPinsInverted(false, false, true);
   motorB.setEnablePin(MOTOR_B_ENABLE_PIN);
-  motorB.setPinsInverted(true, false, true); // this one turns the opposite direction to A, hence inverted.
+  motorB.setPinsInverted(true, false, true); // éste gira en la dirección opuesta a A, por lo tanto invertida.
 #endif
 }
 
@@ -117,13 +110,7 @@ void configuration_setup()
   stepsPerMM = multiplier(motorStepsPerRev) / mmPerRev;
   
 #ifdef ADAFRUIT_MOTORSHIELD_V2
-  AFMS.begin();  // create with the default frequency 1.6KHz
+  AFMS.begin();  // crear con la frecuencia predeterminada 1.6KHz
 #endif
-  delay(500);
-  
+  delay(500); 
 }
-// end of Adafruit motorshield definition
-// =================================================================
-
-
-

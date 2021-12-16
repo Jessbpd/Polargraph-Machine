@@ -1,21 +1,12 @@
-/**
-*  Polargraph Server for ATMEGA1280+ 
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_polarshield
-
-Specific features for Polarshield / arduino mega.
-Curve geometry handling.
-
-This file contains code mostly lifted from the AS220 drawbot.
-The old links to the AS220 code don't work any more!
-
-This stuff is about drawing curves, circles and spirals.  It contains the
-implementation of the spiral pixel.
-
+/*
+CURVES
+Características específicas para Polarshield / arduino mega.
+Manejo de geometría de curvas.
+Este archivo contiene código principalmente extraído del robot de dibujo AS220.
+¡Los enlaces antiguos al código AS220 ya no funcionan!
+Se trata de dibujar curvas, círculos y espirales. Contiene el
+implementación del píxel en espiral.
 */
-
 #if MICROCONTROLLER == MC_MEGA
 void curves_pixel_drawCircularPixel() 
 {
@@ -192,5 +183,3 @@ void curves_drawSpiral(long centerx, long centery, int maxRadius, int increment,
   Serial.println("Finished spiral pixel.");
 }
 #endif
-
-

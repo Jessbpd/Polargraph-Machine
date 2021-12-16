@@ -1,15 +1,7 @@
-/**
-*  Polargraph Server for ATMEGA1280+ 
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_polarshield
-
-Specific features for Polarshield / arduino mega.
+/*
+Características específicas para Polarshield / arduino mega.
 Sprite.
-
-Methods that handle drawing and processing vector sprites.
-
+Métodos que manejan el dibujo y procesamiento de sprites vectoriales.
 */
 #if MICROCONTROLLER == MC_MEGA
 

@@ -1,17 +1,8 @@
-/**
-*  Polargraph Server. - CORE
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_a1
-
+/*
 Pixel.
-
-This is one of the core files for the polargraph server program.  
-
-This is a biggie, and has the routines necessary for generating and drawing
-the squarewave and scribble pixel styles.
-
+Este es uno de los archivos principales del programa del servidor polargraph.
+Esto es importante y tiene las rutinas necesarias para generar y dibujar
+los estilos de píxeles de onda cuadrada y garabato.
 */
 #ifdef PIXEL_DRAWING
 void pixel_changeDrawingDirection() 
@@ -421,4 +412,3 @@ void pixel_flipWaveDirection()
     globalDrawDirectionMode = tempDirectionMode;
   }
 #endif
-

@@ -1,20 +1,12 @@
-/**
-*  Polargraph Server. - CORE
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_a1
-
+/*
 EEPROM.
+Este es uno de los archivos principales del programa del servidor polargraph.
+Tiene un par de pequeños métodos de ayuda para leer y escribir.
+entra y flota a EEPROM usando la biblioteca EEPROM.
 
-This is one of the core files for the polargraph server program.  
-Has a couple of little helper methods for reading and writing
-ints and floats to EEPROM using the EEPROM library.
-
-But mostly it contains the loadMachineSpecFromEeprom method, which is
-used to retrieve the machines saved values when it restarts, or 
-whenever a value is written to the EEPROM.
-
+Pero sobre todo contiene el método loadMachineSpecFromEeprom, que es
+utilizado para recuperar los valores guardados de la máquina cuando se reinicia, o
+siempre que se escribe un valor en la EEPROM.
 */
 
 void eeprom_resetEeprom()
@@ -159,4 +151,3 @@ void eeprom_loadMachineSpecFromEeprom()
 
   maxLength = 0;
 }
-
