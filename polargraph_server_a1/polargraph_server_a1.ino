@@ -1,10 +1,9 @@
 /*
 Proyecto realizado por
  - Noguera, Ignacio
- - Pizarr0, Jessica
+ - Pizarro, Jessica
  - Velazquez, Hector
 */
-
 
 // Controlador utilizado
 #ifndef MICROCONTROLLER
@@ -18,14 +17,6 @@ Proyecto realizado por
 // Motor driver
 #define ADAFRUIT_MOTORSHIELD_V1
 #include <AFMotor.h>
-
-//#define SERIAL_STEPPER_DRIVERS 
-//      ¿?¿?
-//   iv. Using a signal amplifier like a UNL2003? 
-//   --------------------------------------------
-//   Don't forget to define your pins in 'configuration.ino'.
-//   #define UNL2003_DRIVER
-
 
 // Encienda algún código de depuración si quiere horror
 //#define DEBUG
@@ -42,7 +33,7 @@ Proyecto realizado por
 
 // ¿Innecesario?
 #define MC_UNO 1
-#define MC_MEGA 2
+//#define MC_MEGA 2
 
 #include <AccelStepper.h>
 #include <Servo.h>
@@ -157,11 +148,13 @@ const static byte DIR_MODE_PRESET = 2;
 static byte globalDrawDirectionMode = DIR_MODE_AUTO;
 #endif
 
-#if MICROCONTROLLER == MC_MEGA
+#define READY_STR "READY"
+
+/*#if MICROCONTROLLER == MC_MEGA
   #define READY_STR "READY_100"
 #else
   #define READY_STR "READY"
-#endif
+#endif*/
 
 #define RESEND_STR "RESEND"
 #define DRAWING_STR "DRAWING"
@@ -206,9 +199,9 @@ void setup()
   Serial.print("Hardware: ");
   Serial.println(MICROCONTROLLER);
   
-  #if MICROCONTROLLER == MC_MEGA
-  Serial.println("MC_MEGA");
-  #elif MICROCONTROLLER == MC_UNO
+  //#if MICROCONTROLLER == MC_MEGA
+  //Serial.println("MC_MEGA");
+  #if MICROCONTROLLER == MC_UNO
   Serial.println("MC_UNO");
   #else
   Serial.println("No MC");
@@ -249,7 +242,7 @@ void loop()
   }
 }
 
-#if MICROCONTROLLER == MC_MEGA
+/*#if MICROCONTROLLER == MC_MEGA
 const static String CMD_TESTPENWIDTHSCRIBBLE = "C12";
 const static String CMD_DRAWSAWPIXEL = "C15,";
 const static String CMD_DRAWCIRCLEPIXEL = "C16";
@@ -331,4 +324,4 @@ static float scaleX = 1.0;
 static float scaleY = 1.0;
 static int rotateTransform = 0;
 
-#endif
+#endif*/

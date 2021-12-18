@@ -6,7 +6,7 @@ valores para las combinaciones de motor, piñón y micropasos utilizadas
 por polargrafos hasta ahora.
 */
 
-#ifdef ADAFRUIT_MOTORSHIELD_V1
+//#ifdef ADAFRUIT_MOTORSHIELD_V1
 const int stepType = INTERLEAVE;
 AF_Stepper afMotorA(motorStepsPerRev, 1);
 AF_Stepper afMotorB(motorStepsPerRev, 2);
@@ -18,9 +18,9 @@ void backwardb() { afMotorB.onestep(BACKWARD, stepType); }
 
 AccelStepper motorA(forwarda, backwarda);
 AccelStepper motorB(forwardb, backwardb);
-#endif
+//#endif
 
-#ifdef ADAFRUIT_MOTORSHIELD_V2
+/*#ifdef ADAFRUIT_MOTORSHIELD_V2
 const int stepType = MICROSTEP;
 
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
@@ -34,7 +34,7 @@ void backwardb() { afMotorB->onestep(BACKWARD, stepType); }
 AccelStepper motorA(forwarda, backwarda);
 AccelStepper motorB(forwardb, backwardb);
 #endif
-
+*/
 /*Configuración del motor si está utilizando controladores paso a paso en serie
 (EasyDrivers, stepsticks, Pololu, etc.).
 
@@ -43,7 +43,7 @@ Si se está conectando usted mismo, introduzca aquí los números de los pines.
 Tenga en cuenta que el servo de elevación del lápiz suele estar en el pin 9, así que evite
 eso si puedes. Si no puede, entonces sabe cómo cambiarlo.
 */
-#ifdef SERIAL_STEPPER_DRIVERS
+/*#ifdef SERIAL_STEPPER_DRIVERS
 #define MOTOR_A_ENABLE_PIN 8
 #define MOTOR_A_STEP_PIN 2
 #define MOTOR_A_DIR_PIN 5
@@ -53,9 +53,9 @@ eso si puedes. Si no puede, entonces sabe cómo cambiarlo.
 #define MOTOR_B_DIR_PIN 6
 AccelStepper motorA(1,MOTOR_A_STEP_PIN, MOTOR_A_DIR_PIN); 
 AccelStepper motorB(1,MOTOR_B_STEP_PIN, MOTOR_B_DIR_PIN); 
-#endif
+#endif*/
 
-#ifdef UNL2003_DRIVER
+// #ifdef UNL2003_DRIVER
 // Contributed by @j0nson
 // Inicializar el controlador paso a paso ULN2003
 // El primer número es el tipo de motor paso a paso, 4 para un motor paso a paso normal de 4 hilos, 8 para un motor normal de 4 hilos a medio paso
@@ -86,9 +86,9 @@ AccelStepper motorB(1,MOTOR_B_STEP_PIN, MOTOR_B_DIR_PIN);
 // DEFAULT_STEPS_PER_REV = 4076;
 // DEFAULT_MM_PER_REV = 63;
 
-AccelStepper motorA(8,6,8,7,9);
-AccelStepper motorB(8,2,4,3,5);
-#endif
+//AccelStepper motorA(8,6,8,7,9);
+//AccelStepper motorB(8,2,4,3,5);
+//#endif
 
 void configuration_motorSetup()
 {
