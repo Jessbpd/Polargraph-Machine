@@ -86,8 +86,8 @@ AccelStepper motorB(1,MOTOR_B_STEP_PIN, MOTOR_B_DIR_PIN);
 // DEFAULT_STEPS_PER_REV = 4076;
 // DEFAULT_MM_PER_REV = 63;
 
-AccelStepper motorA(8, 6,8,7,9);
-AccelStepper motorB(8, 2,4,3,5);
+AccelStepper motorA(8,6,8,7,9);
+AccelStepper motorB(8,2,4,3,5);
 #endif
 
 void configuration_motorSetup()

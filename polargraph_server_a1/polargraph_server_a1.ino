@@ -1,4 +1,4 @@
-/**
+/*
 Proyecto realizado por
  - Noguera, Ignacio
  - Pizarr0, Jessica
@@ -8,17 +8,18 @@ Proyecto realizado por
 
 // Controlador utilizado
 #ifndef MICROCONTROLLER
-#define MICROCONTROLLER MC_MEGA
+#define MICROCONTROLLER MC_UNO
 #endif
 
 // Librerías de Mega
-#include <SPI.h>
-#include <SD.h>
+//#include <SPI.h>
+//#include <SD.h>
+
 // Motor driver
 #define ADAFRUIT_MOTORSHIELD_V1
 #include <AFMotor.h>
 
-#define SERIAL_STEPPER_DRIVERS 
+//#define SERIAL_STEPPER_DRIVERS 
 //      ¿?¿?
 //   iv. Using a signal amplifier like a UNL2003? 
 //   --------------------------------------------
@@ -48,7 +49,7 @@ Proyecto realizado por
 #include <EEPROM.h>
 #include "EEPROMAnything.h"
 
-const String FIRMWARE_VERSION_NO = "0.0.1";
+const String FIRMWARE_VERSION_NO = "1.2.3";
 
 //  EEPROM addresses
 const byte EEPROM_MACHINE_WIDTH = 0;
@@ -67,17 +68,18 @@ const byte EEPROM_MACHINE_HOME_B = 38; // 4 bytes
 const byte EEPROM_PENLIFT_DOWN = 42; // 2 bytes
 const byte EEPROM_PENLIFT_UP = 44; // 2 bytes
 
-// Pen raising servo
+// Elevación del boligrafo
 Servo penHeight;
 const int DEFAULT_DOWN_POSITION = 90;
 const int DEFAULT_UP_POSITION = 180;
-static int upPosition = DEFAULT_UP_POSITION; // defaults
+static int upPosition = DEFAULT_UP_POSITION; // defecto
 static int downPosition = DEFAULT_DOWN_POSITION;
-static int penLiftSpeed = 3; // ms between steps of moving motor
-const byte PEN_HEIGHT_SERVO_PIN = A3; //Change the servo pin to A3, to pass through to the coolant enable pin.
+static int penLiftSpeed = 3; // ms entre los pasos de los motores
+const byte PEN_HEIGHT_SERVO_PIN = A3; 
+//????Change the servo pin to A3, to pass through to the coolant enable pin.
 boolean isPenUp = false;
 
-// Machine specification defaults
+// Especificaciones por defecto de la maquina
 const int DEFAULT_MACHINE_WIDTH = 650;
 const int DEFAULT_MACHINE_HEIGHT = 650;
 const int DEFAULT_MM_PER_REV = 95;
@@ -110,7 +112,7 @@ const int INLENGTH = 50;
 const char INTERMINATOR = 10;
 const char SEMICOLON = ';';
 
-float penWidth = 0.8F; // line width in mm
+float penWidth = 0.8F; // Espesor de la linea en mm
 
 boolean reportingPosition = true;
 boolean acceleration = true;
