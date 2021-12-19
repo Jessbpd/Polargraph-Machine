@@ -12,6 +12,6 @@ Trabajo semestral - Cátedra Proyecto 1
 + Ing. Luis Poisson
 + Aux. Guillermo Galeano
 
-
+///cambio para visualizar en git
 
 GH repo clone zanedrys/IPAD
