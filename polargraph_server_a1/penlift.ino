@@ -1,27 +1,16 @@
-/**
-*  Polargraph Server. - CORE
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_a1
-
+/*
 Penlift.
-
 Este es uno de los archivos principales del programa del servidor polargraph.
 Este archivo contiene las llamadas de servo que suben o bajan el lápiz desde
 la página.
-
 El comportamiento del elevador de pluma es el siguiente:
-
 Si se recibe un simple comando de "levantar el lápiz" o "levantar el lápiz" ("C14, FIN"), la máquina
 No intente levantar el bolígrafo si cree que ya está levantado. Comprueba el valor de la
 variable booleana global "isPenUp" para decidir esto.
-
 Si se recibe un "bolígrafo arriba" calificado, que incluye una posición del bolígrafo (por ejemplo, "C14,150, END"),
 luego se actualiza la variable de posición global "arriba", y el servo se mueve a esa posición,
 incluso si ya está "activo". Porque, naturalmente, si la posición hacia arriba ha cambiado, incluso si
 ya está activo, hay una buena posibilidad de que no sea suficiente.
-
 Lo mismo ocurre con el
 */
 #ifdef PENLIFT

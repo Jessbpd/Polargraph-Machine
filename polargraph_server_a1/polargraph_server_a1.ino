@@ -1,14 +1,13 @@
 /*
 Proyecto realizado por
- - Noguera, Ignacio
- - Pizarro, Jessica
- - Velazquez, Hector
+ - Noguera, Ignacio;    Pizarro, Jessica;   Velazquez, Hector
 */
 
 // Controlador utilizado
 #ifndef MICROCONTROLLER
 #define MICROCONTROLLER MC_UNO
 #endif
+
 
 // Librerías de Mega
 //#include <SPI.h>

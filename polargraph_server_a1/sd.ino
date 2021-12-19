@@ -3,11 +3,6 @@ Características específicas para Polarshield / arduino mega.
 SD.
 Para inicializar, leer y escribir el almacén de datos de la tarjeta SD.
 */
-
-/*  ==============================================================
-    Processing the SD card if there is one attached. 
-=================================================================*/
-
 #if MICROCONTROLLER == MC_MEGA
 void sd_initSD()
 {

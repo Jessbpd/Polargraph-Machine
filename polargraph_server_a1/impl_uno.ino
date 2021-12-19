@@ -1,10 +1,4 @@
-/**
-*  Polargraph Server. - IMPLEMENTATION
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_a1
-
+/*
 Implementation of executeCommand for UNO-sized boards 
 without "store" features. Doesn't actually do anything except
 pass the command to the real executeCommand.  */
@@ -271,5 +265,3 @@ void impl_releaseMotors()
 #endif
   powerIsOn = false;  
 }
-
-

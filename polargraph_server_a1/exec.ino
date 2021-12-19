@@ -1,12 +1,5 @@
 /**
-*  Polargraph Server. - CORE
-*  Written by Sandy Noble
-*  Released under GNU License version 3.
-*  http://www.polargraph.co.uk
-*  https://github.com/euphy/polargraph_server_a1
-
 Exec.
-
 Este es uno de los archivos principales del programa del servidor polargraph.
 Los propósitos se están volviendo un poco más borrosos aquí. Este archivo contiene
 el árbol de decisión básico que se ramifica según el comando.
@@ -14,9 +7,6 @@ el árbol de decisión básico que se ramifica según el comando.
 Tiene un conjunto de los comandos de dibujo de uso general, pero solo
 métodos que se llaman directamente - ninguno de la geometría o conversión
 las rutinas están aquí.
-
-*/
-/**  This method looks only for the basic command set
 */
 boolean exec_executeBasicCommand(String &com)
 {
