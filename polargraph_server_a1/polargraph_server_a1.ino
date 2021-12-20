@@ -64,8 +64,8 @@ const int DEFAULT_DOWN_POSITION = 90;
 const int DEFAULT_UP_POSITION = 180;
 static int upPosition = DEFAULT_UP_POSITION; // defecto
 static int downPosition = DEFAULT_DOWN_POSITION;
-static int penLiftSpeed = 3; // ms entre los pasos de los motores
-const byte PEN_HEIGHT_SERVO_PIN = A3; 
+static int penLiftSpeed = 3; // ms entre los pasos de los motores(3)
+const byte PEN_HEIGHT_SERVO_PIN = 10; 
 //????Change the servo pin to A3, to pass through to the coolant enable pin.
 boolean isPenUp = false;
 
@@ -193,7 +193,7 @@ const static String CMD_SETMACHINESTEPMULTIPLIER = "C37";
 
 void setup() 
 {
-  Serial.begin(9600);           // Configurar el Serial library en 9600 bps
+  Serial.begin(57600);           // Configurar el Serial library en 9600 bps
   Serial.println("POLARGRAPH ON!");
   Serial.print("Hardware: ");
   Serial.println(MICROCONTROLLER);
