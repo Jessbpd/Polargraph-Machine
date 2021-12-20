@@ -193,7 +193,7 @@ const static String CMD_SETMACHINESTEPMULTIPLIER = "C37";
 
 void setup() 
 {
-  Serial.begin(57600);           // Configurar el Serial library en 57600 bps
+  Serial.begin(9600);           // Configurar el Serial library en 9600 bps
   Serial.println("POLARGRAPH ON!");
   Serial.print("Hardware: ");
   Serial.println(MICROCONTROLLER);
