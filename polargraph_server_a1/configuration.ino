@@ -6,7 +6,7 @@ valores para las combinaciones de motor, piñón y micropasos utilizadas
 por polargrafos hasta ahora.
 */
 
-//#ifdef ADAFRUIT_MOTORSHIELD_V1
+#ifdef ADAFRUIT_MOTORSHIELD_V1
 const int stepType = INTERLEAVE;
 AF_Stepper afMotorA(motorStepsPerRev, 1);
 AF_Stepper afMotorB(motorStepsPerRev, 2);
@@ -18,7 +18,7 @@ void backwardb() { afMotorB.onestep(BACKWARD, stepType); }
 
 AccelStepper motorA(forwarda, backwarda);
 AccelStepper motorB(forwardb, backwardb);
-//#endif
+#endif
 
 /*#ifdef ADAFRUIT_MOTORSHIELD_V2
 const int stepType = MICROSTEP;
