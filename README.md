@@ -1,5 +1,5 @@
 # Polargraph-Machine
-Implementación  de una máquina de dibujo polarográfica en arduino MEGA 2560
+Implementación  de una máquina de dibujo polarográfica en arduino UNO
 
 Trabajo semestral - Cátedra Proyecto 1
 
@@ -11,7 +11,5 @@ Trabajo semestral - Cátedra Proyecto 1
 ### Tutores
 + Ing. Luis Poisson
 + Aux. Guillermo Galeano
-
-///cambio para visualizar en git
 
 GH repo clone zanedrys/IPAD
